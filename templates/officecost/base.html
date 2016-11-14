@@ -1,0 +1,82 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Учет расходов</title>
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static '_css/bootstrap.css' %}" media="screen, projection">
+    <link rel="stylesheet" href="{% static '_css/bootstrap-theme.css' %}" media="screen, projection">
+    <link rel="stylesheet" href="{% static '_css/office-cost.css' %}">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'index' %}">Система учета расходов</a>
+            </div>
+
+
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'add' %}">Добавить<span class="sr-only">(current)</span></a></li>
+                        <li><a href="{% url 'limits' %}">Лимиты отдела</a></li>
+                        <li><a href="{% url 'my_expenses' %}">Мои расходы</a></li>
+                        {% if user.is_superuser %}
+                            <li><a href="{% url 'department_expenses' %}">Расходы отделов</a></li>
+                        {% endif %}
+                    {% endif %}
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                        <li><p class="navbar-text">Вы вошли как {{ user.username }}</p></li>
+                        <li><a href="{% url 'logout' %}?next=/">Выйти</a></li>
+
+
+                    {% else %}
+                        <li><a href="{% url 'login' %}?next=/">Войти</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>
+    {% block content %}
+    {% endblock content %}
+</main>
+<footer class="footer container">
+    <div class="row" id="footer-top">
+        <ul class="nav navbar-nav">
+            <li role="presentation"><a href="#">Правила</a></li>
+            <li role="presentation"><a href="#">Штрафные санкции</a></li>
+            <li role="presentation"><a href="#">Lorem</a></li>
+            <li role="presentation"><a href="#">Lorem</a></li>
+            <li role="presentation"><a href="#">Lorem</a></li>
+        </ul>
+    </div>
+    <hr>
+    <div class="row" id="footer-bottom">
+        <article>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. © 2016 All rights reserved.
+        </article>
+    </div>
+</footer>
+<script src="{% static '_js/jquery-2.2.0.js' %}"></script>
+<script src="{% static '_js/bootstrap.js' %}"></script>
+<script src="{% static '_js/office-cost.js' %}"></script>
+</body>
+</html>

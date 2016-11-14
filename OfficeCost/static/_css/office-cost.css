@@ -1,0 +1,45 @@
+/*#footer-top .nav a:hover{*/
+/*background-color: red;*/
+/*}*/
+#footer-top .nav > li > a {
+    color: #777;
+}
+
+#footer-top .nav > li:first-child > a {
+    padding-left: 0px;
+}
+
+#footer-top .nav > li > a:hover, .nav > li > a:focus {
+    background-color: white;
+    color: #444;
+    text-decoration: underline;
+}
+
+#footer-top {
+    margin-bottom: -15px;
+}
+
+header .navbar.navbar-default {
+    margin-bottom: 1px;
+}
+
+#login-page .page-header {
+    /*height: 500px;*/
+    margin-bottom: 40px;
+    margin-top: 40px;
+    border-bottom: none;
+}
+
+article.container {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#alert {
+    margin-top: 20px;
+}

@@ -1,0 +1,36 @@
+{% extends 'officecost/base.html' %}
+
+{% block content %}
+    <article class="container">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">{{ department_name }}</div>
+            <div class="panel-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad commodi consectetur consequuntur
+                    corporis delectus excepturi expedita laboriosam magni minus nisi, obcaecati odit quis repellendus
+                    repudiandae temporibus unde, vero vitae voluptatum!</p>
+            </div>
+
+            <!-- Table -->
+            <table class="table table-hover .table-striped">
+                <thead>
+                <tr>
+                    <th>Тип расхода</th>
+                    <th>Остаток</th>
+                    <th>Лимит</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for row in table %}
+                    <tr>
+                        {% for x in row %}
+                            <td>{{ x }}</td>
+                        {% endfor %}
+
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </article>
+{% endblock content %}

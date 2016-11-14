@@ -1,0 +1,16 @@
+{% extends 'officecost/base.html' %}
+
+{% block content %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Заголовок страницы</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem blanditiis excepturi explicabo
+            minima modi nesciunt perferendis quibusdam ratione tempora. Corporis eius incidunt minus obcaecati quisquam
+            rem repellat reprehenderit, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum excepturi harum
+            ipsa officia officiis quae quam qui sunt tenetur totam. Adipisci amet consectetur earum eius saepe. Adipisci
+            inventore natus pariatur!</p>
+            <p>Попробуйте добавить вашу запись</p>
+            <p><a class="btn btn-primary btn-lg" href="{% url 'add' %}" role="button">Добавить »</a></p>
+        </div>
+    </div>
+{% endblock content %}
